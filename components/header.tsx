@@ -18,13 +18,7 @@ export default function Header() {
           {/* ロゴとタイトル */}
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden">
-              <Image
-                src="/SRC_SNS4.png"
-                alt="ボーイスカウトロゴ"
-                width={48}
-                height={48}
-                className="object-contain"
-              />
+              <Image src="/SRC_SNS4.png" alt="ボーイスカウトロゴ" width={48} height={48} className="object-contain" />
             </div>
             <div>
               <h1 className="text-xl font-bold text-white leading-tight">静岡ローバース会議</h1>
