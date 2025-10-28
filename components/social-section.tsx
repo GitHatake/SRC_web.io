@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { useEffect } from "react"
 
 export default function SocialSection() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+
   const instagramUsername = "src._.shizuoka"
 
   // TODO: 以下のdata-ref値を、EmbedSocialで作成したウィジェットのdata-ref値に置き換えてください
@@ -43,7 +45,7 @@ export default function SocialSection() {
             rel="noopener noreferrer"
             title="EmbedSocialで作成しました"
           >
-            <img src="/images/design-mode/embedsocial-logo.webp" alt="EmbedSocial" />
+            <img src={`${basePath}/images/design-mode/embedsocial-logo.webp`} alt="EmbedSocial" />
             <div className="es-widget-branding-text">EmbedSocialで作成しました</div>
           </a>
         </div>
@@ -91,52 +93,6 @@ export default function SocialSection() {
               <strong>方法1: アカウント名を設定</strong>
               <br />
               <code className="bg-blue-100 px-2 py-1 rounded text-xs">components/social-section.tsx</code>
-              の6行目の
-              <code className="bg-blue-100 px-2 py-1 rounded text-xs">instagramUsername</code>
-              に、@なしのアカウント名を設定してください。
-            </p>
-            <p>
-              <strong>方法2: 埋め込みウィジェットを使用</strong>
-              <br />
-              以下のサービスで無料の埋め込みウィジェットを作成できます：
-            </p>
-            <ul className="list-disc list-inside ml-4 space-y-1">
-              <li>
-                <a
-                  href="https://embedsocial.com/products/embedfeed/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  EmbedSocial
-                </a>{" "}
-                (推奨)
-              </li>
-              <li>
-                <a
-                  href="https://www.juicer.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  Juicer
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://flockler.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  Flockler
-                </a>
-              </li>
-            </ul>
-            <p>
-              ウィジェットの埋め込みコードを取得したら、
-              <code className="bg-blue-100 px-2 py-1 rounded text-xs">embedCode</code>
-              変数（9行目）に貼り付けてください。
             </p>
           </div>
         </div>
