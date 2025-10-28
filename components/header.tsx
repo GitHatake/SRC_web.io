@@ -4,7 +4,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Image from "next/image"
 
 export default function Header() {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+  const basePath = process.env.NODE_ENV === "production" ? "/SRC_web.io" : ""
 
   const navItems = [
     { label: "活動記録", href: "#activities" },
