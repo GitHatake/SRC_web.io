@@ -19,7 +19,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden">
               <Image
-                src="/boy-scout-logo.jpg"
+                src="/SRC_SNS4.png"
                 alt="ボーイスカウトロゴ"
                 width={48}
                 height={48}
