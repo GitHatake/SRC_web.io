@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  // 例: リポジトリ名が "scout-portal" の場合、basePath: '/scout-portal'
-  // ユーザードメイン（username.github.io）の場合は basePath: '' のまま
-  basePath: '',
+  basePath: '/SRC_web.io',  // Updated to actual repository name
   eslint: {
     ignoreDuringBuilds: true,
   },
