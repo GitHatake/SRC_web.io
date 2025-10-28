@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/SRC_web.io',  // Updated to actual repository name
+  basePath: '/SRC_web.io',
   eslint: {
     ignoreDuringBuilds: true,
   },
