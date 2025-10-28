@@ -1,9 +1,11 @@
 export default function HeroSection() {
+  const basePath = process.env.NODE_ENV === "production" ? "/SRC_web.io" : ""
+
   return (
     <section className="relative h-[500px] w-full overflow-hidden">
       {/* 背景画像 */}
       <div className="absolute inset-0">
-        <img src="/public/backgroundimage.jpg" alt="ボーイスカウト活動" className="w-full h-full object-cover" />
+        <img src={`${basePath}/backgroundimage.jpg`} alt="ボーイスカウト活動" className="w-full h-full object-cover" />
         {/* グラデーションオーバーレイ */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#009bde]/80 via-[#00acc4]/70 to-[#77c49f]/80" />
       </div>
