@@ -3,7 +3,7 @@ import HeroSection from "@/components/hero-section"
 import ActivityRecords from "@/components/activity-records"
 import CalendarSection from "@/components/calendar-section"
 import SocialSection from "@/components/social-section"
-import AdminButton from "@/components/admin-button"
+import { AdminButton } from "@/components/admin-button"
 
 export default function Home() {
   return (
