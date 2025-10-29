@@ -32,8 +32,9 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-8 text-[#009bde]">最新情報</h2>
           <SocialSection />
         </section>
+        <AdminButton /> 
       </main>
-      <AdminButton /> 
+      
       <footer className="bg-gradient-to-r from-[#009bde] via-[#00acc4] to-[#77c49f] text-white py-8 mt-16">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm">© 2025 shizuoka rovers conference. All rights reserved.</p>
