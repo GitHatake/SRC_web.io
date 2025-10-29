@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     images: [`${siteUrl}/SRC_SNS4.png`], // OGP画像の絶対パス
   },
   verification: {
-    google: '<meta name="google-site-verification" content="e5ur5CeRsnVwqIMVWZ7DR0jj9D_A-jFgiwymzl1HGEE" />', // この行を追加
+    google: 'e5ur5CeRsnVwqIMVWZ7DR0jj9D_A-jFgiwymzl1HGEE', // この行を追加
   },
   generator: 'v0.app'
 }
