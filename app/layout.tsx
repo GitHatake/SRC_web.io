@@ -16,8 +16,8 @@ const zenMaruGothic = Zen_Maru_Gothic({
 })
 
 export const metadata: Metadata = {
-  title: "ボーイスカウト活動ポータル",
-  description: "ボーイスカウト隊の活動記録とスケジュール",
+  title: "SRC 静岡ローバース会議 活動ポータル",
+  description: "静岡ローバース会議の活動記録とスケジュール",
     generator: 'v0.app'
 }
 
