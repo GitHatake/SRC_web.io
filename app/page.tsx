@@ -3,7 +3,7 @@ import HeroSection from "@/components/hero-section"
 import ActivityRecords from "@/components/activity-records"
 import CalendarSection from "@/components/calendar-section"
 import SocialSection from "@/components/social-section"
-import AdminButton from '@/components/admin-button'; // この行を追加
+import AdminButton from "@/components/admin-button"
 
 export default function Home() {
   return (
@@ -34,6 +34,12 @@ export default function Home() {
         </section>
       </main>
       <AdminButton /> 
+      <footer className="bg-gradient-to-r from-[#009bde] via-[#00acc4] to-[#77c49f] text-white py-8 mt-16">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm">© 2025 shizuoka rovers conference. All rights reserved.</p>
+        </div>
+      </footer>
+
     </div>
   );
 }
