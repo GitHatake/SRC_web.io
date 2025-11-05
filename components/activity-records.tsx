@@ -106,18 +106,31 @@ export default function ActivityRecords({ excludeMinutes = false }: ActivityReco
     })
 
     return Array.from(grouped.entries()).map(([key, items]) => {
-      // 最新の活動を取得（endTimeでソート）
-      const sorted = items.sort((a, b) => new Date(b.endTime).getTime() - new Date(a.endTime).getTime())
-      const latest = sorted[0]
+      // 参照元ファイル名に基づく優先順位を判定する関数
+      const getPriority = (activity: Activity): number => {
+        const pdfTitle = activity.pdfTitle || ""
+        if (pdfTitle.includes("計画書")) return 3
+        if (pdfTitle.includes("企画書")) return 2
+        return 1
+      }
+
+      // 優先順位でソートし、同じ優先順位の場合は日付（endTime）でソート
+      const sorted = items.sort((a, b) => {
+        const priorityDiff = getPriority(b) - getPriority(a)
+        if (priorityDiff !== 0) return priorityDiff
+        return new Date(b.endTime).getTime() - new Date(a.endTime).getTime()
+      })
+
+      const representative = sorted[0]
 
       return {
         id: key,
-        title: latest.title,
-        category: latest.category,
-        subCategory: latest.subCategory,
-        status: latest.status,
+        title: representative.title,
+        category: representative.category,
+        subCategory: representative.subCategory,
+        status: representative.status,
         count: items.length,
-        latestActivity: latest,
+        latestActivity: representative,
         activities: sorted, // 全アクティビティを保持
       }
     })
