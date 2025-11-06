@@ -1,18 +1,16 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
+import { Zen_Maru_Gothic } from 'next/font/google'
 
-import { Zen_Maru_Gothic, Geist as V0_Font_Geist, Geist_Mono as V0_Font_Geist_Mono, Source_Serif_4 as V0_Font_Source_Serif_4 } from 'next/font/google'
-
-// Initialize fonts
-const _geist = V0_Font_Geist({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
-const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
-const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
-
+// Zen Maru Gothicのみを最適化設定で読み込む
 const zenMaruGothic = Zen_Maru_Gothic({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-zen-maru-gothic",
+  display: 'swap', // フォント読み込み中もテキストを表示
+  preload: true, // 優先的に読み込む
+  adjustFontFallback: true, // フォールバックフォントのサイズ調整
 })
 
 const siteUrl = "https://githatake.github.io/SRC_web.io/";
@@ -33,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "SRC 静岡ローバース会議",
     images: [
       {
-        url: '${basePath}/SRC_SNS4.png', // OGP画像のパス (publicディレクトリに配置)
+        url: `${basePath}/SRC_SNS4.png`,
         width: 1200,
         height: 630,
       },
@@ -45,10 +43,14 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "SRC 静岡ローバース会議 活動ポータル",
     description: "静岡ローバース会議の活動記録とスケジュール",
-    images: [`${siteUrl}/SRC_SNS4.png`], // OGP画像の絶対パス
+    images: [`${siteUrl}/SRC_SNS4.png`],
   },
   verification: {
-    google: 'e5ur5CeRsnVwqIMVWZ7DR0jj9D_A-jFgiwymzl1HGEE', // この行を追加
+    google: 'e5ur5CeRsnVwqIMVWZ7DR0jj9D_A-jFgiwymzl1HGEE',
+  },
+  // パフォーマンス最適化のメタデータを追加
+  other: {
+    'color-scheme': 'light',
   },
   generator: 'v0.app'
 }
@@ -59,8 +61,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
-      <body className={`${zenMaruGothic.variable} font-sans antialiased`}>{children}</body>
+    <html lang="ja" suppressHydrationWarning>
+      <head>
+        {/* DNS解決を事前に行い、フォント読み込みを高速化 */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className={`${zenMaruGothic.variable} font-sans antialiased`}>
+        {children}
+      </body>
     </html>
   )
 }
