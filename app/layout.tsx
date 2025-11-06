@@ -1,7 +1,7 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
-import { Zen_Maru_Gothic } from 'next/font/google'
+import { Zen_Maru_Gothic, Noto_Sans_JP } from 'next/font/google'
 
 // Zen Maru Gothicのみを最適化設定で読み込む
 const zenMaruGothic = Zen_Maru_Gothic({
@@ -11,6 +11,13 @@ const zenMaruGothic = Zen_Maru_Gothic({
   display: 'swap', // フォント読み込み中もテキストを表示
   preload: true, // 優先的に読み込む
   adjustFontFallback: true, // フォールバックフォントのサイズ調整
+})
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  variable: '--font-noto-sans',
 })
 
 const siteUrl = "https://githatake.github.io/SRC_web.io/";
@@ -61,13 +68,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html lang="ja" className={notoSansJP.variable}>
       <head>
         {/* DNS解決を事前に行い、フォント読み込みを高速化 */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`${zenMaruGothic.variable} font-sans antialiased`}>
+      <body className={`${zenMaruGothic.variable} ${notoSansJP.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
