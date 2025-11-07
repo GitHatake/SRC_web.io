@@ -21,6 +21,12 @@
 - **CI/CD**: GitHub Actions
 - **外部連携**: Google Apps Script, Google Calendar API
 
+## 🔗 関連プロジェクト
+
+このウェブサイトの機能をサポートするGoogle Apps Script (GAS) のソースコードは、以下のリポジトリで管理されています。データ取得や管理機能の詳細は、こちらをご参照ください。
+
+- **[GAS for SRC_web](https://github.com/GitHatake/GASforSRC_web.git)**
+
 ## 📋 前提条件
 
 - Node.js 18.x以上
