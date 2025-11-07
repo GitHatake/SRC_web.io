@@ -38,7 +38,9 @@ export default function FeaturedActivities() {
         const converted = filtered.map((item, index) => convertGASToActivity(item, index))
 
         // 開始日時が近い順にソート
-        converted.sort((a, b) => new Date(a.startTime).getTime() - new Date(b.startTime).getTime())
+        converted.sort((a, b) => new Date(a.startTime).getTime(
+          
+        ) - new Date(b.startTime).getTime())
 
         setFeaturedActivities(converted)
       } catch (error) {
